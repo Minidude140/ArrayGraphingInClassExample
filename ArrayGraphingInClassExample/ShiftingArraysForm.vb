@@ -58,6 +58,8 @@
     ''' </summary>
     ''' <param name="plotData"></param>
     Sub Plot(plotData() As Integer)
+        'clear old data
+        GraphPictureBox.Refresh()
         Dim g As Graphics = GraphPictureBox.CreateGraphics
         Dim pen As New Pen(Color.Black)
         Dim oldx As Integer
@@ -76,8 +78,7 @@
         Dim tempData() As Integer
         'load random numbers into array (shift one new number each click)
         tempData = ShiftArray(RandomNumberFrom(50, GraphPictureBox.Height - 100))
-        'clear old data
-        GraphPictureBox.Refresh()
+
         'Draw new data on the array
         Plot(tempData)
     End Sub
