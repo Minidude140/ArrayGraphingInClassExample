@@ -53,10 +53,33 @@
         Return data
     End Function
 
-    Private Sub TestButton_Click(sender As Object, e As EventArgs) Handles PlotButton.Click
-        For i = 0 To 99
-            ShiftArray(RandomNumberFrom())
+    ''' <summary>
+    ''' Draws the Given Array Data onto the picture box
+    ''' </summary>
+    ''' <param name="plotData"></param>
+    Sub Plot(plotData() As Integer)
+        Dim g As Graphics = GraphPictureBox.CreateGraphics
+        Dim pen As New Pen(Color.Black)
+        Dim oldx As Integer
+        Dim oldy As Integer
+        'scales the X to be the number of pixels in the picture box by 100
+        g.ScaleTransform(CSng(GraphPictureBox.Width / 100), 1)
+        'iterate through the data and plot each point on the screen
+        For x = 0 To UBound(plotData)
+            g.DrawLine(pen, oldx, oldy, x, plotData(x))
+            oldx = x
+            oldy = plotData(x)
         Next
+    End Sub
+
+    Private Sub PlotButton_Click(sender As Object, e As EventArgs) Handles PlotButton.Click
+        Dim tempData() As Integer
+        'load random numbers into array (shift one new number each click)
+        tempData = ShiftArray(RandomNumberFrom(50, GraphPictureBox.Height - 100))
+        'clear old data
+        GraphPictureBox.Refresh()
+        'Draw new data on the array
+        Plot(tempData)
     End Sub
 
     Private Sub QuitButton_Click(sender As Object, e As EventArgs) Handles QuitButton.Click

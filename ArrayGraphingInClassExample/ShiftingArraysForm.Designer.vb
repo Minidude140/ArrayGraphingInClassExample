@@ -39,6 +39,7 @@ Partial Class ShiftingArraysForm
         '
         'GraphPictureBox
         '
+        Me.GraphPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.GraphPictureBox.Location = New System.Drawing.Point(15, 17)
         Me.GraphPictureBox.Name = "GraphPictureBox"
         Me.GraphPictureBox.Size = New System.Drawing.Size(778, 366)
