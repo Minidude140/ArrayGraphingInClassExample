@@ -1,7 +1,5 @@
 ﻿Public Class ShiftingArraysForm
 
-
-
     ''' <summary>
     ''' Given a minimum and maximum, returns a random number within range.  
     ''' <br/>
@@ -39,7 +37,8 @@
             Console.WriteLine(CStr(Randomness(i)).PadLeft(4))
         Next
     End Sub
-    Private Sub ShiftingArraysForm_load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    Private Sub TestButton_Click(sender As Object, e As EventArgs) Handles TestButton.Click
 
     End Sub
 End Class
