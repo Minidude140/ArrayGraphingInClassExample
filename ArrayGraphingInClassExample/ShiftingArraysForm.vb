@@ -42,7 +42,7 @@
     ''' Shifts all array locations to the left one place.  Puts newData in the last dimension of the array
     ''' </summary>
     ''' <param name="newData"></param>
-    Sub ShiftArray(newData As Integer)
+    Function ShiftArray(newData As Integer) As Integer()
         Static data(99) As Integer
         'Shift all the array data to the left
         For i = LBound(data) To (UBound(data) - 1)
@@ -50,7 +50,8 @@
         Next
         'loads given new data into the last dimension of the array (after shifting)
         data(UBound(data)) = newData
-    End Sub
+        Return data
+    End Function
 
     Private Sub TestButton_Click(sender As Object, e As EventArgs) Handles TestButton.Click
         For i = 0 To 99
