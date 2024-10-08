@@ -53,9 +53,13 @@
         Return data
     End Function
 
-    Private Sub TestButton_Click(sender As Object, e As EventArgs) Handles TestButton.Click
+    Private Sub TestButton_Click(sender As Object, e As EventArgs) Handles PlotButton.Click
         For i = 0 To 99
             ShiftArray(RandomNumberFrom())
         Next
+    End Sub
+
+    Private Sub QuitButton_Click(sender As Object, e As EventArgs) Handles QuitButton.Click
+        Me.Close()
     End Sub
 End Class
